@@ -4,6 +4,7 @@ import Banner from '../components/Banner';
 import SmallCard from '../components/SmallCard';
 import MediumCard from '../components/MediumCard';
 import LargeCard from '../components/LargeCard';
+import Footer from '../components/Footer';
 
 export default ({ cities, livingFeatures }) => {
     return (
@@ -42,7 +43,7 @@ export default ({ cities, livingFeatures }) => {
                     </div>
                 </section>
 
-                <section>
+                <section className="relative py-16 cursor-pointer">
                     <LargeCard
                         img="https://links.papareact.com/4cj"
                         title="The greatest outdoors"
@@ -51,6 +52,8 @@ export default ({ cities, livingFeatures }) => {
                     />
                 </section>
             </main>
+
+            <Footer />
         </div>
     );
 };
