@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import Header from '../components/Header';
 import Banner from '../components/Banner';
-import CityCard from '../components/CityCard';
-import LivingFeatureCard from '../components/LivingFeatureCard';
+import SmallCard from '../components/SmallCard';
+import MediumCard from '../components/MediumCard';
+import LargeCard from '../components/LargeCard';
 
 export default ({ cities, livingFeatures }) => {
     return (
@@ -26,7 +27,7 @@ export default ({ cities, livingFeatures }) => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                         {cities?.map((city) => (
-                            <CityCard key={city.location} location={city} />
+                            <SmallCard key={city.location} city={city} />
                         ))}
                     </div>
                 </section>
@@ -36,9 +37,18 @@ export default ({ cities, livingFeatures }) => {
                     </h2>
                     <div className="flex space-x-3 overflow-x-scroll overflow-y-hidden scrollbar-hide p-3 -ml-3">
                         {livingFeatures.map((livingFeature) => (
-                            <LivingFeatureCard livingFeature={livingFeature} />
+                            <MediumCard livingFeature={livingFeature} />
                         ))}
                     </div>
+                </section>
+
+                <section>
+                    <LargeCard
+                        img="https://links.papareact.com/4cj"
+                        title="The greatest outdoors"
+                        description="Wishlists curated by Airbnb"
+                        buttonText="Get inspired"
+                    />
                 </section>
             </main>
         </div>
