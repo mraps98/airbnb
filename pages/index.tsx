@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import Header from '../components/Header';
+import Banner from '../components/Banner';
 
 export default () => {
     return (
         <div>
             <Head>
-                <title>Create Next App</title>
+                <title>airbnb</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
@@ -13,6 +14,7 @@ export default () => {
             <Header />
 
             {/* Banner */}
+            <Banner />
         </div>
     );
 };
