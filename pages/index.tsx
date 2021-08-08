@@ -6,7 +6,7 @@ import MediumCard from '../components/MediumCard';
 import LargeCard from '../components/LargeCard';
 import Footer from '../components/Footer';
 
-export default ({ cities, livingFeatures }) => {
+const Home = ({ cities, livingFeatures }) => {
     return (
         <div>
             <Head>
@@ -74,3 +74,5 @@ export const getStaticProps = async () => {
         },
     };
 };
+
+export default Home;
