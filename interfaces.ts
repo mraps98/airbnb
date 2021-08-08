@@ -6,5 +6,5 @@ export interface ICity {
 
 export interface ILivingFeature {
     img: string;
-    text: string;
+    title: string;
 }
