@@ -5,8 +5,15 @@ import SmallCard from '../components/SmallCard';
 import MediumCard from '../components/MediumCard';
 import LargeCard from '../components/LargeCard';
 import Footer from '../components/Footer';
+import { ICity, ILivingFeature } from '../interfaces';
+import { FC } from 'react';
 
-const Home = ({ cities, livingFeatures }) => {
+interface IProps {
+    cities: Array<ICity>;
+    livingFeatures: Array<ILivingFeature>;
+}
+
+const Home: FC<IProps> = ({ cities, livingFeatures }) => {
     return (
         <div>
             <Head>
@@ -59,11 +66,11 @@ const Home = ({ cities, livingFeatures }) => {
 };
 
 export const getStaticProps = async () => {
-    const cities = await (
+    const cities: Array<ICity> = await (
         await fetch('https://links.papareact.com/pyp')
     ).json();
 
-    const livingFeatures = await (
+    const livingFeatures: Array<ILivingFeature> = await (
         await fetch('https://links.papareact.com/zp1')
     ).json();
 
