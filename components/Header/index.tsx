@@ -9,7 +9,7 @@ import {
 } from '@heroicons/react/solid';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-import { DateRangePicker } from 'react-date-range';
+import { DateRangePicker, OnDateRangeChangeProps } from 'react-date-range';
 
 const Header: FC = () => {
     const [searchInput, setSearchInput] = useState('');
@@ -31,7 +31,9 @@ const Header: FC = () => {
         setSearchInput(e.target.value);
     };
 
-    const handleChangeDateRangePicker = (ranges) => {
+    const handleChangeDateRangePicker = (
+        ranges: OnDateRangeChangeProps | any
+    ) => {
         setDateRangePickerStartDate(ranges.selection.startDate);
         setDateRangePickerEndDate(ranges.selection.endDate);
     };
@@ -84,7 +86,7 @@ const Header: FC = () => {
                         minDate={new Date()}
                         rangeColors={['#FD5B61']}
                         onChange={handleChangeDateRangePicker}
-                        scroll={{ enable: true }}
+                        scroll={{ enabled: true }}
                     />
                     <div className="flex items-center border-b mb-4">
                         <h2 className="text-2xl flex-grow font-semibold">
