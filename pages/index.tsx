@@ -45,7 +45,10 @@ const Home: FC<IProps> = ({ cities, livingFeatures }) => {
                     </h2>
                     <div className="flex space-x-3 overflow-x-scroll overflow-y-hidden scrollbar-hide p-3 -ml-3">
                         {livingFeatures.map((livingFeature) => (
-                            <MediumCard livingFeature={livingFeature} />
+                            <MediumCard
+                                key={livingFeature.img}
+                                livingFeature={livingFeature}
+                            />
                         ))}
                     </div>
                 </section>
