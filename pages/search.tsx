@@ -4,8 +4,14 @@ import { FC } from 'react';
 import SearchFilter from '../components/SearchFilter';
 import { useRouter } from 'next/dist/client/router';
 import { format } from 'date-fns';
+import { ILocationSearchResult } from '../interfaces';
+import InfoCard from '../components/InfoCard';
 
-const Search: FC = () => {
+interface IProps {
+    locationSearchResults: Array<ILocationSearchResult>;
+}
+
+const Search: FC<IProps> = ({ locationSearchResults }) => {
     const router = useRouter();
     const { location, startDate, endDate, numberOfGuests } = router.query;
     const formattedStartDate = format(
@@ -14,6 +20,7 @@ const Search: FC = () => {
     );
     const formattedEndDate = format(new Date(endDate as string), 'dd MMMM yy');
     const dateRange = `${formattedStartDate} - ${formattedEndDate}`;
+
     return (
         <>
             <Header
@@ -35,6 +42,15 @@ const Search: FC = () => {
                         <SearchFilter>Rooms and beds</SearchFilter>
                         <SearchFilter>More filter</SearchFilter>
                     </div>
+
+                    <div className="flex flex-col space-y-6 border-t mb-10 mt-4">
+                        {locationSearchResults.map((locationSearchResult) => (
+                            <InfoCard
+                                locationSearchResult={locationSearchResult}
+                                locationSearched={location}
+                            />
+                        ))}
+                    </div>
                 </section>
             </main>
 
@@ -44,3 +60,14 @@ const Search: FC = () => {
 };
 
 export default Search;
+
+export const getServerSideProps = async () => {
+    const locationSearchResults = await (
+        await fetch('https://links.papareact.com/isz')
+    ).json();
+    return {
+        props: {
+            locationSearchResults,
+        },
+    };
+};
