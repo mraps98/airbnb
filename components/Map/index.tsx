@@ -46,7 +46,7 @@ const Map: FC<IMapProps> = ({ locationSearchResults, coordinates }) => {
                         offsetTop={-10}
                     >
                         <p
-                            className="cursor-pointer text-2xl animate-bounce"
+                            className="cursor-pointer text-2xl animate-bounce z-0"
                             onClick={() => setClickedLocation(result)}
                         >
                             📌
@@ -58,6 +58,7 @@ const Map: FC<IMapProps> = ({ locationSearchResults, coordinates }) => {
                             longitude={clickedLocation.long as number}
                             onClose={() => setClickedLocation({})}
                             closeOnClick
+                            className="z-10"
                         >
                             {result.title}
                         </Popup>
