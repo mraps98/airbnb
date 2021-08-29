@@ -14,7 +14,7 @@ import { DateRangePicker, OnDateRangeChangeProps } from 'react-date-range';
 import { useRouter } from 'next/dist/client/router';
 
 interface IProps {
-    placeholder: string;
+    placeholder?: string;
 }
 
 const Header: FC<IProps> = ({ placeholder }) => {
