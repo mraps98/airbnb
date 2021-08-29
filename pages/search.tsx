@@ -47,7 +47,7 @@ const Search: FC<IProps> = ({ locationSearchResults }) => {
                         {locationSearchResults.map((locationSearchResult) => (
                             <InfoCard
                                 locationSearchResult={locationSearchResult}
-                                locationSearched={location}
+                                locationSearched={location as string}
                             />
                         ))}
                     </div>
