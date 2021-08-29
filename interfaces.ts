@@ -20,3 +20,13 @@ export interface ILocationSearchResult {
     title: string;
     total: string;
 }
+
+export interface IMapboxViewport {
+    width: number | string;
+    height: number | string;
+    latitude: number;
+    longitude: number;
+    zoom: number;
+}
+
+export type TMapboxCenter = Pick<IMapboxViewport, 'latitude' | 'longitude'>;

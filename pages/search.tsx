@@ -6,6 +6,7 @@ import { useRouter } from 'next/dist/client/router';
 import { format } from 'date-fns';
 import { ILocationSearchResult } from '../interfaces';
 import InfoCard from '../components/InfoCard';
+import Map from '../components/Map';
 
 interface IProps {
     locationSearchResults: Array<ILocationSearchResult>;
@@ -51,6 +52,18 @@ const Search: FC<IProps> = ({ locationSearchResults }) => {
                             />
                         ))}
                     </div>
+                </section>
+
+                <section className="hidden xl:inline-flex xl:min-w-[600px]">
+                    <Map
+                        locationSearchResults={locationSearchResults}
+                        coordinates={() =>
+                            locationSearchResults.map((result) => ({
+                                latitude: result.lat,
+                                longitude: result.long,
+                            }))
+                        }
+                    />
                 </section>
             </main>
 
